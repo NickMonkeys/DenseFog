@@ -30,10 +30,10 @@ export default class MapBox {
     public update() {
         const vertexs = this.map.getVertexs4Box(this.x, this.y);
         let num = 0;
-        vertexs.lu && vertexs.lu.isActive() && (num += 1);
-        vertexs.ld && vertexs.ld.isActive() && (num += 4);
-        vertexs.ru && vertexs.ru.isActive() && (num += 2);
-        vertexs.rd && vertexs.rd.isActive() && (num += 8);
+        vertexs.lu && vertexs.lu.isActive() && (num += 2);
+        vertexs.ld && vertexs.ld.isActive() && (num += 8);
+        vertexs.ru && vertexs.ru.isActive() && (num += 1);
+        vertexs.rd && vertexs.rd.isActive() && (num += 4);
         this.setNum(num);
     }
 

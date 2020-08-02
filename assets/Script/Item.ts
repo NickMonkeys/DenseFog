@@ -1,9 +1,4 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import { prototype } from "events";
 
 const {ccclass, property} = cc._decorator;
 
@@ -12,6 +7,12 @@ export default class Item extends cc.Component {
 
     @property(cc.Label)
     label: cc.Label = null;
+
+    @property(cc.Sprite)
+    img: cc.Sprite = null;
+
+    @property(cc.SpriteAtlas)
+    imgs: cc.SpriteAtlas = null;
 
     private x: number = 0;
     private y: number = 0;
@@ -24,6 +25,7 @@ export default class Item extends cc.Component {
 
     public setNum(num: number) {
         this.label.string = `${num}`;
+        this.img.spriteFrame = this.imgs.getSpriteFrame("img_" + num);
     }
 
     protected onClick() {
